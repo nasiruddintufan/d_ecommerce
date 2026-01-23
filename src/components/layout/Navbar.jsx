@@ -8,7 +8,7 @@ const Navbar = () => {
     const catagories = [
       {
         title: "Groceries",
-        to: "",
+        to: "groceries",
         childern: [
           "Dairy & Eggs",
           "Bakery & Grains",
@@ -20,7 +20,7 @@ const Navbar = () => {
       },
       {
         title: "Premium Fruits",
-        to: "",
+        to: "fruits",
         childern: [
           "Blueberries",
           "Strawberries",
@@ -34,7 +34,7 @@ const Navbar = () => {
       },
       {
         title: "Home & Kitchen",
-        to: "",
+        to: "home&kitchen",
         childern: [
           "Kitchen Essentials",
           "Dining & Serveware",
@@ -47,11 +47,11 @@ const Navbar = () => {
       },
       {
         title: "Fashion",
-        to: "",
+        to: "fashion",
         childern: [
-          "Men’s Fashion",
-          "Women’s Fashion",
-          "Kids’ Fashion",
+          "Men Fashion",
+          "Women Fashion",
+          "Kids Fashion",
           "Accessories",
           "Footwear",
           "Seasonal & Special",
@@ -59,7 +59,7 @@ const Navbar = () => {
       },
       {
         title: "Electronics",
-        to: "",
+        to: "electronics",
         childern: [
           "Seasonal & Special",
           "Computers & Laptops",
@@ -69,12 +69,12 @@ const Navbar = () => {
       },
       {
         title: "Beauty",
-        to: "",
+        to: "beauty",
         childern: ["Skincare", "Haircare"],
       },
       {
         title: "Home Improvement",
-        to: "",
+        to: "homeimprovement",
         childern: [
           "Tools & Hardware",
           "Electrical & Lighting",
@@ -86,10 +86,10 @@ const Navbar = () => {
         ],
       },
       {
-        title: "Sport,Toys & Luggage",
-        to: "",
+        title: "Sports,Toys & Luggage",
+        to: "sporttoy",
         childern: [
-          "Fitness Equipment",
+          "Fitness Equipments",
           "Outdoor Sports",
           "Sports Apparel & Shoes",
           "Water Sports Equipment",
@@ -108,7 +108,7 @@ const Navbar = () => {
   return (
     <header>
       <nav>
-        <div className="bg-[#F5F5F5] py-3">
+        <div className="`bg-[#F5F5F5]` py-3">
           <div className="container flex justify-between ">
             <div>
               <p className="text-sm text-primary">
@@ -135,7 +135,7 @@ const Navbar = () => {
           <Link>
             <img src="/logo.jpg" alt="logo" />
           </Link>
-          <div className="flex gap-2.5 items-center p-4 bg-[#F3F9FB] rounded-4xl w-full max-w-lg">
+          <div className="flex gap-2.5 items-center p-4 `bg-[#F3F9FB]` rounded-4xl w-full max-w-lg">
             <BiSearchAlt className="text-brand text-2xl" />
             <input
               type="text"
@@ -168,7 +168,7 @@ const Navbar = () => {
         <div className="container flex">
           {catagories.map((item) => (
             <div key={item.title } className="relative group gap-3.5">
-              <Link className="bg-third inline-block hover:bg-brand hover:text-white px-3.5 py-2 rounded-2xl text-[#222222] text-base font-medium ">
+              <Link to={item.to} className="bg-third inline-block hover:bg-brand hover:text-white px-3.5 py-2 rounded-2xl text-[#222222] text-base font-medium ">
                 <div className="flex items-center gap-1">
                   <p>{item.title}</p>
                   <BiChevronDown className="text-xl" />
