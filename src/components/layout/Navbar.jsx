@@ -1,48 +1,106 @@
-import React from "react";
+import React, { useState } from "react";
 import { BiChevronDown, BiSearchAlt, BiSolidOffer } from "react-icons/bi";
+import { FaWindowClose } from "react-icons/fa";
 import { FaBarsStaggered, FaLocationDot, FaOpencart, FaTruckFast } from "react-icons/fa6";
+import { GiCrossMark } from "react-icons/gi";
+import { GoChevronDown } from "react-icons/go";
+import { MdOutlineCancel } from "react-icons/md";
 import { PiUserBold } from "react-icons/pi";
+import { RxCross2 } from "react-icons/rx";
 import { Link } from "react-router";
 
 const Navbar = () => {
+  const [openderopdown,setopendropdown]=useState();
+  const [isopen,setisopen]=useState(false);
     const catagories = [
       {
         title: "Groceries",
         to: "groceries",
         childern: [
-          "Dairy & Eggs",
-          "Bakery & Grains",
-          "Meat & Fish",
-          "Pantry & Staples",
-          "Beverages",
-          "Snacks & Sweets",
+          {
+            title: "Dairy & Eggs",
+            to: "",
+          },
+          {
+            title: "Bakery & Grains",
+            to: "",
+          },
+          {
+            title: "Meat & Fish",
+            to: "",
+          },
+          {
+            title: "Pantry & Staples",
+            to: "",
+          },
+          {
+            title: "Beverages",
+            to: "",
+          },
+          {
+            title: "Snacks & Sweets",
+            to: "",
+          },
         ],
       },
       {
-        title: "Premium Fruits",
+        title: "Fruits",
         to: "fruits",
         childern: [
-          "Blueberries",
-          "Strawberries",
-          "Grapes",
-          "Pear ",
-          "Pomegranate",
-          "Avocado",
-          "Cherry",
-          "Mango",
+          {
+            title: "Blueberries",
+            to: "",
+          },
+          {
+            title: "Strawberries",
+            to: "",
+          },
+          {
+            title: "Grapes",
+            to: "",
+          },
+          {
+            title: "Pear ",
+            to: "",
+          },
+          {
+            title: "Pomegranate",
+            to: "",
+          },
+          {
+            title: "Avocado",
+            to: "",
+          },
         ],
       },
       {
-        title: "Home & Kitchen",
+        title: "Kitchen",
         to: "home&kitchen",
         childern: [
-          "Kitchen Essentials",
-          "Dining & Serveware",
-          "Appliances",
-          "Home Cleaning",
-          "Home Organization",
-          "Home Decoration",
-          "Bed & Bath",
+          {
+            title: "Kitchen Essentials",
+            to: "",
+          },
+          {
+            title: "Dining & Serveware",
+            to: "",
+          },
+          {
+            title: "Appliances",
+            to: "",
+          },
+          {
+            title: "Home Cleaning",
+            to: "",
+          },
+          {
+            title: "Home Organization",
+            to: "",
+          },
+          {
+            title: "Bed & Bath",
+            to: "",
+          },
         ],
       },
       {
@@ -73,7 +131,7 @@ const Navbar = () => {
         childern: ["Skincare", "Haircare"],
       },
       {
-        title: "Home Improvement",
+        title: "Home ",
         to: "homeimprovement",
         childern: [
           "Tools & Hardware",
@@ -134,7 +192,10 @@ const Navbar = () => {
       <nav>
         <div className="container">
           <div className="flex justify-between py-5 items-center">
-            <button className="text-primary text-2xl md:hidden">
+            <button
+              onClick={() => setisopen(true)}
+              className="text-primary text-2xl md:hidden"
+            >
               <FaBarsStaggered />
             </button>
             <Link className="w-40 md:w-auto">
@@ -169,13 +230,16 @@ const Navbar = () => {
             </div>
           </div>
           {/* mobile Navbar */}
-          <div className="flex md:hidden gap-2.5 mb-4 items-center p-4 bg-[#F3F9FB] rounded-4xl w-full max-w-lg">
-            <BiSearchAlt className="text-brand text-2xl" />
-            <input
-              type="text"
-              placeholder="Search essentials, groceries and more..."
-              className="w-full text-primary text-base outline-0"
-            />
+
+          <div className="md:hidden">
+            <div className="flex md:hidden gap-2.5 mb-4 items-center p-4 bg-[#F3F9FB] rounded-4xl w-full">
+              <BiSearchAlt className="text-brand text-2xl" />
+              <input
+                type="text"
+                placeholder="Search essentials, groceries and more..."
+                className="w-full text-primary text-base outline-0"
+              />
+            </div>
           </div>
         </div>
       </nav>
@@ -198,15 +262,78 @@ const Navbar = () => {
               </Link>
               <ul className="absolute top-full left-0 transition invisible opacity-0  group-hover:visible group-hover:opacity-100 w-60  bg-theme shadow space-y-2 p-2 rounded-2xl text-base text-primary font-medium">
                 {item.childern.map((child) => (
-                  <li key={child}>
-                    <Link className="hover:px-2 hover:bg-brand hover:text-theme  block rounded-2xl ">
-                      {child}
+                  <li key={child.title}>
+                    <Link
+                      key={child.to}
+                      className="hover:px-2 hover:bg-brand hover:text-theme  block rounded-2xl "
+                    >
+                      {child.title}
                     </Link>
                   </li>
                 ))}
               </ul>
             </div>
           ))}
+        </div>
+      </div>
+
+      {/* mobile sidebar */}
+      <div>
+        <div
+          className={`${
+            isopen ? "opacity-100 visible" : "opacity-0 invisible"
+          } md:hidden fixed top-0 left-0 w-full h-screen bg-primary/55`}
+        >
+          <div
+            className={`${
+              isopen ? "translate-x-0" : "-translate-x-full"
+            } transition w-4/5 sm:w-3/5 bg-theme h-full p-4`}
+          >
+            <div className="flex items-center justify-between py-3 pb-2 mb-2 border-b border-secondary">
+              <h4 className="text-xl text-primary">Main Menu</h4>
+              <button
+                onClick={() => setisopen(false)}
+                className="text-xl text-primary "
+              >
+                <MdOutlineCancel />
+              </button>
+            </div>
+            <ul className="space-y-4 text-primary font-bold text-lg pb-5 mb-5 border-b border-secondary">
+              {catagories.map((item) => (
+                <li key={item.title}>
+                  <div className="flex justify-between">
+                    <Link to={item.to}>{item.title}</Link>
+                    <button
+                      onClick={() => {
+                        setopendropdown(item.title);
+                      }}
+                    >
+                      <GoChevronDown />
+                    </button>
+                  </div>
+                  <div>
+                    <ul
+                      className={`${
+                        openderopdown === item.title ? "block" : "hidden"
+                      } font-normal text-base pl-3 space-y-2 mt-2`}
+                    >
+                      {item.childern.map((child) => (
+                        <li key={child.title}>
+                          <Link>{child.title}</Link>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                </li>
+              ))}
+            </ul>
+            <Link
+              to="signin"
+              className="flex items-center gap-1.5 text-base font-bold text-primary relative after:absolute after:h-full after:w-0.5 after:bg-primary/40 after:top-0 after:-right-5"
+            >
+              Sign Up/Sign In
+            </Link>
+          </div>
         </div>
       </div>
     </header>
