@@ -144,7 +144,7 @@ const Navbar = () => {
         ],
       },
       {
-        title: "Sports,Toys & Luggage",
+        title: "STL",
         to: "sporttoy",
         childern: [
           "Fitness Equipments",
@@ -165,29 +165,6 @@ const Navbar = () => {
     ];
   return (
     <header>
-      <div className="bg-[#F5F5F5] py-3 hidden md:block">
-        <div className="container flex justify-between ">
-          <div>
-            <p className="text-sm text-primary">
-              Welcome to worldwide Megamart!
-            </p>
-          </div>
-          <div className="flex gap-8">
-            <Link className="flex  items-center text-primary text-sm gap-1.5 relative after:absolute after:h-full after:w-0.5 after:bg-primary/30 after:top-0 after:-right-4">
-              <FaLocationDot className="text-brand" />
-              <p>Deliver to 423651</p>
-            </Link>
-            <Link className="flex items-center text-primary text-sm gap-1.5 relative after:absolute after:h-full after:w-0.5 after:bg-primary/30 after:top-0 after:-right-4">
-              <FaTruckFast className="text-brand" />
-              <p>Track your order</p>
-            </Link>
-            <Link className="flex items-center text-primary text-sm gap-1.5">
-              <BiSolidOffer className="text-brand" />
-              <p>All Offers</p>
-            </Link>
-          </div>
-        </div>
-      </div>
       {/* navbar */}
       <nav>
         <div className="container">
@@ -198,7 +175,7 @@ const Navbar = () => {
             >
               <FaBarsStaggered />
             </button>
-            <Link className="w-40 md:w-auto">
+            <Link className="inline-block w-40 md:w-auto">
               <img src="/logo.jpg" alt="logo" className="w-full" />
             </Link>
 
@@ -218,49 +195,48 @@ const Navbar = () => {
                 className="hidden md:flex items-center gap-1.5 text-base font-bold text-primary relative after:absolute after:h-full after:w-0.5 after:bg-primary/40 after:top-0 after:-right-5"
               >
                 <PiUserBold className="text-brand text-xl" />
-                Sign Up/Sign In
+                <span className="hidden lg:block">Sign up/Sign in</span>
               </Link>
               <Link
                 to="cart"
                 className="flex items-center gap-1.5 text-base font-bold text-primary"
               >
                 <FaOpencart className="text-brand text-xl" />
-                <span className="hidden md:block">cart</span>
+                <span className="hidden lg:block">cart</span>
               </Link>
             </div>
           </div>
+
           {/* mobile Navbar */}
 
-          <div className="md:hidden">
-            <div className="flex md:hidden gap-2.5 mb-4 items-center p-4 bg-[#F3F9FB] rounded-4xl w-full">
-              <BiSearchAlt className="text-brand text-2xl" />
-              <input
-                type="text"
-                placeholder="Search essentials, groceries and more..."
-                className="w-full text-primary text-base outline-0"
-              />
-            </div>
+          <div className="flex md:hidden gap-2.5 mb-4 items-center p-4 bg-[#F3F9FB] rounded-4xl w-full ">
+            <BiSearchAlt className="text-brand text-2xl" />
+            <input
+              type="text"
+              placeholder="Search essentials, groceries and more..."
+              className="w-full text-primary text-base outline-0"
+            />
           </div>
         </div>
       </nav>
 
       {/* product catagories desktop*/}
 
-      <div className="py-4 border-y border-secondary hidden md:block">
+      <div className=" py-4 border-y border-secondary hidden md:block">
         {/* for scroll type use overflow-x-auto */}
-        <div className="container flex gap-1">
+        <div className="container flex gap-5  overflow-x-auto overflow-y-hidden ">
           {catagories.map((item) => (
-            <div key={item.title} className="relative group gap-3.5">
+            <div key={item.title} className="relative group">
               <Link
                 to={item.to}
-                className="bg-third inline-block hover:bg-brand hover:text-white px-3.5 py-2 rounded-2xl text-[#222222] text-base font-medium "
+                className="bg-third inline-block hover:bg-brand py-2 px-3 text-base font-medium rounded-2xl text-[#222222] hover:text-theme"
               >
                 <div className="flex items-center gap-1">
                   <p>{item.title}</p>
                   <BiChevronDown className="text-xl" />
                 </div>
               </Link>
-              <ul className="absolute top-full left-0 transition invisible opacity-0  group-hover:visible group-hover:opacity-100 w-60  bg-theme shadow space-y-2 p-2 rounded-2xl text-base text-primary font-medium">
+              <ul className="absolute top-full left-0 transition invisible opacity-0  group-hover:visible group-hover:opacity-100 w-48  bg-theme shadow space-y-2 p-2 rounded-2xl text-base text-primary font-medium">
                 {item.childern.map((child) => (
                   <li key={child.title}>
                     <Link

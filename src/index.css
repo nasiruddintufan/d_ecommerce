@@ -12,3 +12,11 @@
   --color-third : #F3F9FB;
   --color-theme : #fff;
 }
+
+.slick-dots .slick-active div{
+  @apply w-4 md:w-10;
+}
+
+div::-webkit-scrollbar{
+  display: none;
+}
