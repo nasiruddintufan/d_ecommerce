@@ -1,8 +1,14 @@
 @import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Abel&family=Abhaya+Libre:wght@400;500;600;700;800&family=Cambay:ital,wght@0,400;0,700;1,400;1,700&family=Tinos:ital,wght@0,400;0,700;1,400;1,700&display=swap');
 
 @utility container{
   margin:auto;
   padding: 0px 12px;
+}
+
+@utility py-120{
+  padding-top : 120px;
+  padding-bottom : 120px;
 }
 
 @theme{
@@ -11,6 +17,11 @@
   --color-secondary : #F5F5F5;
   --color-third : #F3F9FB;
   --color-theme : #fff;
+  --font-primary:"Abel", sans-serif;
+}
+
+body{
+    @apply font-primary;
 }
 
 .slick-dots .slick-active div{
@@ -19,4 +30,13 @@
 
 div::-webkit-scrollbar{
   display: none;
+}
+
+@layer components{
+  .heading{
+    @apply font-bold text-lg md:text-2xl text-primary
+  }
+  .heading span{
+    @apply text-brand;
+  }
 }

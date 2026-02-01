@@ -28,7 +28,7 @@ const Banner = () => {
     
 
   return (
-    <section className="">
+    <section className="pt-5 relative z-0">
       <div className="container">
         <Slider {...settings}>
           <div>

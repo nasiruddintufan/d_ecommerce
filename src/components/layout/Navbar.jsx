@@ -1,7 +1,12 @@
 import React, { useState } from "react";
 import { BiChevronDown, BiSearchAlt, BiSolidOffer } from "react-icons/bi";
 import { FaWindowClose } from "react-icons/fa";
-import { FaBarsStaggered, FaLocationDot, FaOpencart, FaTruckFast } from "react-icons/fa6";
+import {
+  FaBarsStaggered,
+  FaLocationDot,
+  FaOpencart,
+  FaTruckFast,
+} from "react-icons/fa6";
 import { GiCrossMark } from "react-icons/gi";
 import { GoChevronDown } from "react-icons/go";
 import { MdOutlineCancel } from "react-icons/md";
@@ -10,178 +15,178 @@ import { RxCross2 } from "react-icons/rx";
 import { Link } from "react-router";
 
 const Navbar = () => {
-  const [openderopdown,setopendropdown]=useState();
-  const [isopen,setisopen]=useState(false);
-    const catagories = [
-      {
-        title: "Groceries",
-        to: "groceries",
-        childern: [
-          {
-            title: "Dairy & Eggs",
-            to: "",
-          },
-          {
-            title: "Bakery & Grains",
-            to: "",
-          },
-          {
-            title: "Meat & Fish",
-            to: "",
-          },
-          {
-            title: "Pantry & Staples",
-            to: "",
-          },
-          {
-            title: "Beverages",
-            to: "",
-          },
-          {
-            title: "Snacks & Sweets",
-            to: "",
-          },
-        ],
-      },
-      {
-        title: "Fruits",
-        to: "fruits",
-        childern: [
-          {
-            title: "Blueberries",
-            to: "",
-          },
-          {
-            title: "Strawberries",
-            to: "",
-          },
-          {
-            title: "Grapes",
-            to: "",
-          },
-          {
-            title: "Pear ",
-            to: "",
-          },
-          {
-            title: "Pomegranate",
-            to: "",
-          },
-          {
-            title: "Avocado",
-            to: "",
-          },
-        ],
-      },
-      {
-        title: "Kitchen",
-        to: "home&kitchen",
-        childern: [
-          {
-            title: "Kitchen Essentials",
-            to: "",
-          },
-          {
-            title: "Dining & Serveware",
-            to: "",
-          },
-          {
-            title: "Appliances",
-            to: "",
-          },
-          {
-            title: "Home Cleaning",
-            to: "",
-          },
-          {
-            title: "Home Organization",
-            to: "",
-          },
-          {
-            title: "Bed & Bath",
-            to: "",
-          },
-        ],
-      },
-      {
-        title: "Fashion",
-        to: "fashion",
-        childern: [
-          "Men Fashion",
-          "Women Fashion",
-          "Kids Fashion",
-          "Accessories",
-          "Footwear",
-          "Seasonal & Special",
-        ],
-      },
-      {
-        title: "Electronics",
-        to: "electronics",
-        childern: [
-          "Seasonal & Special",
-          "Computers & Laptops",
-          "TV & Entertainment",
-          "Smart Devices",
-        ],
-      },
-      {
-        title: "Beauty",
-        to: "beauty",
-        childern: ["Skincare", "Haircare"],
-      },
-      {
-        title: "Home ",
-        to: "homeimprovement",
-        childern: [
-          "Tools & Hardware",
-          "Electrical & Lighting",
-          "Paint & Supplies",
-          "Plumbing & Bathroom",
-          "Home Safety & Security",
-          "Garden & Outdoor",
-          "Storage & Organization",
-        ],
-      },
-      {
-        title: "STL",
-        to: "sporttoy",
-        childern: [
-          "Fitness Equipments",
-          "Outdoor Sports",
-          "Sports Apparel & Shoes",
-          "Water Sports Equipment",
-          "Travel Bags",
-          "Backpacks & School Bags",
-          "Laptop Bags & Messenger Bags",
-          "Travel Accessories",
-          "Art & Craft Kits",
-          "Educational Toys",
-          "Outdoor Toys",
-          "Remote Control Toys",
-          "Puzzles & Board Games",
-        ],
-      },
-    ];
+  const [openderopdown, setopendropdown] = useState();
+  const [isopen, setisopen] = useState(false);
+  const catagories = [
+    {
+      title: "Groceries",
+      to: "groceries",
+      childern: [
+        {
+          title: "Dairy & Eggs",
+          to: "",
+        },
+        {
+          title: "Bakery & Grains",
+          to: "",
+        },
+        {
+          title: "Meat & Fish",
+          to: "",
+        },
+        {
+          title: "Pantry & Staples",
+          to: "",
+        },
+        {
+          title: "Beverages",
+          to: "",
+        },
+        {
+          title: "Snacks & Sweets",
+          to: "",
+        },
+      ],
+    },
+    {
+      title: "Fruits",
+      to: "fruits",
+      childern: [
+        {
+          title: "Blueberries",
+          to: "",
+        },
+        {
+          title: "Strawberries",
+          to: "",
+        },
+        {
+          title: "Grapes",
+          to: "",
+        },
+        {
+          title: "Pear ",
+          to: "",
+        },
+        {
+          title: "Pomegranate",
+          to: "",
+        },
+        {
+          title: "Avocado",
+          to: "",
+        },
+      ],
+    },
+    {
+      title: "Kitchen",
+      to: "home&kitchen",
+      childern: [
+        {
+          title: "Kitchen Essentials",
+          to: "",
+        },
+        {
+          title: "Dining & Serveware",
+          to: "",
+        },
+        {
+          title: "Appliances",
+          to: "",
+        },
+        {
+          title: "Home Cleaning",
+          to: "",
+        },
+        {
+          title: "Home Organization",
+          to: "",
+        },
+        {
+          title: "Bed & Bath",
+          to: "",
+        },
+      ],
+    },
+    {
+      title: "Fashion",
+      to: "fashion",
+      childern: [
+        "Men Fashion",
+        "Women Fashion",
+        "Kids Fashion",
+        "Accessories",
+        "Footwear",
+        "Seasonal & Special",
+      ],
+    },
+    {
+      title: "Electronics",
+      to: "electronics",
+      childern: [
+        "Seasonal & Special",
+        "Computers & Laptops",
+        "TV & Entertainment",
+        "Smart Devices",
+      ],
+    },
+    {
+      title: "Beauty",
+      to: "beauty",
+      childern: ["Skincare", "Haircare"],
+    },
+    {
+      title: "Home ",
+      to: "homeimprovement",
+      childern: [
+        "Tools & Hardware",
+        "Electrical & Lighting",
+        "Paint & Supplies",
+        "Plumbing & Bathroom",
+        "Home Safety & Security",
+        "Garden & Outdoor",
+        "Storage & Organization",
+      ],
+    },
+    {
+      title: "STL",
+      to: "sporttoy",
+      childern: [
+        "Fitness Equipments",
+        "Outdoor Sports",
+        "Sports Apparel & Shoes",
+        "Water Sports Equipment",
+        "Travel Bags",
+        "Backpacks & School Bags",
+        "Laptop Bags & Messenger Bags",
+        "Travel Accessories",
+        "Art & Craft Kits",
+        "Educational Toys",
+        "Outdoor Toys",
+        "Remote Control Toys",
+        "Puzzles & Board Games",
+      ],
+    },
+  ];
   return (
-    <header>
+    <header className="relative z-50">
       {/* navbar */}
       <nav>
         <div className="container">
           <div className="flex justify-between py-5 items-center">
             <button
               onClick={() => setisopen(true)}
-              className="text-primary text-2xl md:hidden"
+              className="text-primary text-2xl lg:hidden"
             >
               <FaBarsStaggered />
             </button>
-            <Link className="inline-block w-40 md:w-auto">
+            <Link className="inline-block w-40 lg:w-auto">
               <img src="/logo.jpg" alt="logo" className="w-full" />
             </Link>
 
             {/* desktop searchbar */}
 
-            <div className="hidden md:flex gap-2.5 items-center p-4 bg-[#F3F9FB] rounded-4xl w-full max-w-lg">
+            <div className="hidden lg:flex gap-2.5 items-center p-4 bg-[#F3F9FB] rounded-4xl w-full max-w-lg">
               <BiSearchAlt className="text-brand text-2xl" />
               <input
                 type="text"
@@ -192,7 +197,7 @@ const Navbar = () => {
             <div className="flex gap-10">
               <Link
                 to="signin"
-                className="hidden md:flex items-center gap-1.5 text-base font-bold text-primary relative after:absolute after:h-full after:w-0.5 after:bg-primary/40 after:top-0 after:-right-5"
+                className="hidden lg:flex items-center gap-1.5 text-base font-bold text-primary relative after:absolute after:h-full after:w-0.5 after:bg-primary/40 after:top-0 after:-right-5"
               >
                 <PiUserBold className="text-brand text-xl" />
                 <span className="hidden lg:block">Sign up/Sign in</span>
@@ -209,7 +214,7 @@ const Navbar = () => {
 
           {/* mobile Navbar */}
 
-          <div className="flex md:hidden gap-2.5 mb-4 items-center p-4 bg-[#F3F9FB] rounded-4xl w-full ">
+          <div className="flex lg:hidden gap-2.5 mb-4 items-center p-4 bg-[#F3F9FB] rounded-4xl w-full ">
             <BiSearchAlt className="text-brand text-2xl" />
             <input
               type="text"
@@ -222,9 +227,9 @@ const Navbar = () => {
 
       {/* product catagories desktop*/}
 
-      <div className=" py-4 border-y border-secondary hidden md:block">
+      <div className=" py-4 border-y border-secondary hidden lg:block">
         {/* for scroll type use overflow-x-auto */}
-        <div className="container flex gap-5  overflow-x-auto overflow-y-hidden ">
+        <div className="container flex gap-5 relative z-50">
           {catagories.map((item) => (
             <div key={item.title} className="relative group">
               <Link
@@ -233,7 +238,7 @@ const Navbar = () => {
               >
                 <div className="flex items-center gap-1">
                   <p>{item.title}</p>
-                  <BiChevronDown className="text-xl" />
+                  <BiChevronDown className="text-xl transform transition-transform duration-200 group-hover:rotate-180" />
                 </div>
               </Link>
               <ul className="absolute top-full left-0 transition invisible opacity-0  group-hover:visible group-hover:opacity-100 w-48  bg-theme shadow space-y-2 p-2 rounded-2xl text-base text-primary font-medium">
@@ -258,7 +263,7 @@ const Navbar = () => {
         <div
           className={`${
             isopen ? "opacity-100 visible" : "opacity-0 invisible"
-          } md:hidden fixed top-0 left-0 w-full h-screen bg-primary/55`}
+          } lg:hidden fixed top-0 left-0 w-full h-screen bg-primary/55`}
         >
           <div
             className={`${
@@ -284,14 +289,20 @@ const Navbar = () => {
                         setopendropdown(item.title);
                       }}
                     >
-                      <GoChevronDown />
+                      <GoChevronDown
+                        className={`transform transition-transform duration-300 ${
+                          openderopdown === item.title
+                            ? "rotate-180"
+                            : "rotate-0"
+                        }`}
+                      />
                     </button>
                   </div>
                   <div>
                     <ul
                       className={`${
                         openderopdown === item.title ? "block" : "hidden"
-                      } font-normal text-base pl-3 space-y-2 mt-2`}
+                      } font-normal text-base pl-3 space-y-2 mt-2 `}
                     >
                       {item.childern.map((child) => (
                         <li key={child.title}>
