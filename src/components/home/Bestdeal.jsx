@@ -11,7 +11,7 @@ const Bestdeal = () => {
           <h2 className='heading'>Grab the best deal on <span>Smartphone</span></h2>
           <Link to="/" className='flex items-center'>View All <BiChevronRight/> </Link>
         </div>
-        <div className='grid gris-cols-2 sm:grid-cols-3 md:grid-cols-4  lg:grid-cols-5 gap-4'>
+        <div className='grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4  lg:grid-cols-5 gap-4'>
             <Productcard/>
             <Productcard/>
             <Productcard/>
