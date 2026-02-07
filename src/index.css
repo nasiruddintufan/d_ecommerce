@@ -40,3 +40,7 @@ div::-webkit-scrollbar{
     @apply text-brand;
   }
 }
+
+.brands-slider .slick-dots .slick-active div{
+  @apply w-2 sm:w-4 bg-brand;
+}
