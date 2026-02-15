@@ -39,7 +39,7 @@ const Footer = () => {
             </div>
           </div>
           <div>
-            <h3 className="text-xl font-bold text-theme border-b-2 w-fit pb-4">
+            <h3 className="text-xl font-bold text-theme border-b-2  w-fit pb-4">
               Most Popular Catagories
             </h3>
             <ul className="text-theme font-medium text-base space-y-5 mt-5 list-disc pl-5">

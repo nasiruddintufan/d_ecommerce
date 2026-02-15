@@ -78,6 +78,7 @@ const Navbar = () => {
         },
       ],
     },
+
     {
       title: "Kitchen",
       to: "home&kitchen",
@@ -108,65 +109,150 @@ const Navbar = () => {
         },
       ],
     },
+
     {
       title: "Fashion",
       to: "fashion",
       childern: [
-        "Men Fashion",
-        "Women Fashion",
-        "Kids Fashion",
-        "Accessories",
-        "Footwear",
-        "Seasonal & Special",
+        {
+          title: "Men Fashion",
+          to: "",
+        },
+        {
+          title: "Women Fashion",
+          to: "",
+        },
+        {
+          title: "Kids Fashion",
+          to: "",
+        },
+        {
+          title: "Accessories",
+          to: "",
+        },
+        {
+          title: "Footwear",
+          to: "",
+        },
+        {
+          title: "Seasonal & Special",
+          to: "",
+        },
       ],
     },
+
     {
       title: "Electronics",
       to: "electronics",
       childern: [
-        "Seasonal & Special",
-        "Computers & Laptops",
-        "TV & Entertainment",
-        "Smart Devices",
+        {
+          title: "Seasonal & Special",
+          to: "",
+        },
+        {
+          title: "Computers & Laptops",
+          to: "",
+        },
+        {
+          title: "TV & Entertainment",
+          to: "",
+        },
+        {
+          title: "Smart Devices",
+          to: "",
+        },
       ],
     },
+
     {
       title: "Beauty",
       to: "beauty",
-      childern: ["Skincare", "Haircare"],
-    },
-    {
-      title: "Home ",
-      to: "homeimprovement",
       childern: [
-        "Tools & Hardware",
-        "Electrical & Lighting",
-        "Paint & Supplies",
-        "Plumbing & Bathroom",
-        "Home Safety & Security",
-        "Garden & Outdoor",
-        "Storage & Organization",
+        {
+          title: "Skincare",
+          to: "",
+        },
+        {
+          title: "Haircare",
+          to: "",
+        },
       ],
     },
+
+    {
+      title: "Home",
+      to: "homeimprovement",
+      childern: [
+        {
+          title: "Tools & Hardware",
+          to: "",
+        },
+        {
+          title: "Electrical & Lighting",
+          to: "",
+        },
+        {
+          title: "Paint & Supplies",
+          to: "",
+        },
+        {
+          title: "Plumbing & Bathroom",
+          to: "",
+        },
+        {
+          title: "Home Security",
+          to: "",
+        },
+        {
+          title: "Garden & Outdoor",
+          to: "",
+        },
+      ],
+    },
+
     {
       title: "STL",
       to: "sporttoy",
       childern: [
-        "Fitness Equipments",
-        "Outdoor Sports",
-        "Sports Apparel & Shoes",
-        "Water Sports Equipment",
-        "Travel Bags",
-        "Backpacks & School Bags",
-        "Laptop Bags & Messenger Bags",
-        "Travel Accessories",
-        "Art & Craft Kits",
-        "Educational Toys",
-        "Outdoor Toys",
-        "Remote Control Toys",
-        "Puzzles & Board Games",
+        {
+          title: "Fitness Equipments",
+          to: "",
+        },
+        {
+          title: "Outdoor Sports",
+          to: "",
+        },
+        {
+          title: "Sports Apparel ",
+          to: "",
+        },
+        {
+          title: "Travel Bags",
+          to: "",
+        },
+        {
+          title: "Backpacks",
+          to: "",
+        },
+        {
+          title: "Travel Accessories",
+          to: "",
+        },
+        {
+          title: "Art & Craft",
+          to: "",
+        },
+        {
+          title: "Educational Toys",
+          to: "",
+        },
+        {
+          title: "Outdoor Toys",
+          to: "",
+        },
       ],
     },
+    
   ];
   return (
     <header className="relative z-50">
@@ -196,7 +282,7 @@ const Navbar = () => {
             </div>
             <div className="flex gap-10">
               <Link
-                to="signin"
+                to="/login"
                 className="hidden lg:flex items-center gap-1.5 text-base font-bold text-primary relative after:absolute after:h-full after:w-0.5 after:bg-primary/40 after:top-0 after:-right-5"
               >
                 <PiUserBold className="text-brand text-xl" />
@@ -327,4 +413,4 @@ const Navbar = () => {
   );
 };
 
-export default Navbar;
+export default Navbar; 
