@@ -2,11 +2,16 @@ import React, { useState } from 'react'
 import Productcard from '../ui/Productcard'
 import { useGetproductsQuery } from '../../services/api'
 import Loding from '../ui/Loding';
+import { useSearchParams } from 'react-router';
 
 const Productlist = () => {
+  const [searchparams] = useSearchParams()
+  const category = searchparams.get("category");
   const [limit,setlimit]=useState(20); 
   const [skip,setskip]=useState(0);
-  const {data,isError,error,isLoading} = useGetproductsQuery(limit,skip);
+  const {data,isError,error,isLoading} = useGetproductsQuery({limit,skip,category});
+
+  
 
   return (
     <section className="py-120">

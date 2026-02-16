@@ -13,10 +13,15 @@ import { MdOutlineCancel } from "react-icons/md";
 import { PiUserBold } from "react-icons/pi";
 import { RxCross2 } from "react-icons/rx";
 import { Link } from "react-router";
+import { useGetcategoryListQuery } from "../../services/api";
 
 const Navbar = () => {
   const [openderopdown, setopendropdown] = useState();
   const [isopen, setisopen] = useState(false);
+  const {data} = useGetcategoryListQuery()
+  console.log(data);
+  
+
   const catagories = [
     {
       title: "Groceries",
@@ -266,7 +271,7 @@ const Navbar = () => {
             >
               <FaBarsStaggered />
             </button>
-            <Link className="inline-block w-40 lg:w-auto">
+            <Link className="inline-block w-40 lg:w-auto" to="/">
               <img src="/logo.jpg" alt="logo" className="w-full" />
             </Link>
 
@@ -315,19 +320,19 @@ const Navbar = () => {
 
       <div className=" py-4 border-y border-secondary hidden lg:block">
         {/* for scroll type use overflow-x-auto */}
-        <div className="container flex gap-5 relative z-50">
-          {catagories.map((item) => (
-            <div key={item.title} className="relative group">
+        <div className="container flex gap-5 relative z-50 ">
+          {data?.slice(0,11).map((item) => (
+            <div key={item} className="relative group">
               <Link
-                to={item.to}
+                to={`/shop?category=${item}`}
                 className="bg-third inline-block hover:bg-brand py-2 px-3 text-base font-medium rounded-2xl text-[#222222] hover:text-theme"
               >
-                <div className="flex items-center gap-1">
-                  <p>{item.title}</p>
-                  <BiChevronDown className="text-xl transform transition-transform duration-200 group-hover:rotate-180" />
+                <div className="flex items-center gap-1 text-nowrap capitalize">
+                  <p>{item}</p>
+                  {/* <BiChevronDown className="text-xl transform transition-transform duration-200 group-hover:rotate-180" /> */}
                 </div>
               </Link>
-              <ul className="absolute top-full left-0 transition invisible opacity-0  group-hover:visible group-hover:opacity-100 w-48  bg-theme shadow space-y-2 p-2 rounded-2xl text-base text-primary font-medium">
+              {/* <ul className="absolute top-full left-0 transition invisible opacity-0  group-hover:visible group-hover:opacity-100 w-48  bg-theme shadow space-y-2 p-2 rounded-2xl text-base text-primary font-medium">
                 {item.childern.map((child) => (
                   <li key={child.title}>
                     <Link
@@ -338,7 +343,7 @@ const Navbar = () => {
                     </Link>
                   </li>
                 ))}
-              </ul>
+              </ul> */}
             </div>
           ))}
         </div>
@@ -349,7 +354,7 @@ const Navbar = () => {
         <div
           className={`${
             isopen ? "opacity-100 visible" : "opacity-0 invisible"
-          } lg:hidden fixed top-0 left-0 w-full h-screen bg-primary/55`}
+          } lg:hidden fixed top-0 left-0 w-full h-screen bg-primary/55 z-50`}
         >
           <div
             className={`${
@@ -366,11 +371,11 @@ const Navbar = () => {
               </button>
             </div>
             <ul className="space-y-4 text-primary font-bold text-lg pb-5 mb-5 border-b border-secondary">
-              {catagories.map((item) => (
-                <li key={item.title}>
+              {data?.slice(0,11).map((item) => (
+                <li key={item}>
                   <div className="flex justify-between">
-                    <Link to={item.to}>{item.title}</Link>
-                    <button
+                    <Link to={item.to}>{item}</Link>
+                    {/* <button
                       onClick={() => {
                         setopendropdown(item.title);
                       }}
@@ -382,10 +387,10 @@ const Navbar = () => {
                             : "rotate-0"
                         }`}
                       />
-                    </button>
+                    </button> */}
                   </div>
                   <div>
-                    <ul
+                    {/* <ul
                       className={`${
                         openderopdown === item.title ? "block" : "hidden"
                       } font-normal text-base pl-3 space-y-2 mt-2 `}
@@ -395,7 +400,7 @@ const Navbar = () => {
                           <Link>{child.title}</Link>
                         </li>
                       ))}
-                    </ul>
+                    </ul> */}
                   </div>
                 </li>
               ))}

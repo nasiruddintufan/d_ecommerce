@@ -1,8 +1,10 @@
 import React from 'react'
 import { BiChevronRight } from 'react-icons/bi'
 import { Link } from 'react-router'
+import { useGetcategoryListQuery } from '../../services/api'
 
 const Catagories = () => {
+  const{data} = useGetcategoryListQuery(); 
     const catagory = [
       {
         title: "Mobile",
@@ -40,23 +42,29 @@ const Catagories = () => {
           <h2 className="heading">
             Shop From Top <span>Catagories</span>
           </h2>
-          <Link to="/" className="flex items-center">
+          <Link to="/shop" className="flex items-center">
             View All <BiChevronRight />{" "}
           </Link>
         </div>
         <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 lg:grid-cols-7 gap-4">
-          {catagory.map((item) => (
-            <Link key={item.title} className="flex flex-col items-center">
-              <div className="bg-secondary w-32 h-32 border border-transparent hover:border-brand 
-              hover:shadow-2xl rounded-full flex items-center justify-center">
+          {data?.map((item) => (
+            <Link
+              key={item}
+              to={`/shop?category=${item}`}
+              className="flex flex-col items-center"
+            >
+              <div
+                className="bg-secondary w-32 h-32 border border-transparent hover:border-brand 
+              hover:shadow-2xl rounded-full flex items-center justify-center"
+              >
                 <img
-                  src={item.src}
+                  src={"/phone1.png"}
                   alt="image"
                   className="w-auto max-w-4/5 h-auto max-h-4/5"
                 />
               </div>
-              <h3 className="mt-5 text-primary font-medium text-base">
-                {item.title}
+              <h3 className="mt-5 text-primary font-medium text-base capitalize">
+                {item}
               </h3>
             </Link>
           ))}
